@@ -10,8 +10,11 @@ export function SingleRecipe({ recipe }: SingleRecipeProps) {
     return (
         <div>
             <BackArrow />
-            <div className="w-full max-w-5xl mx-auto p-6 flex flex-col items-center">
-                <div className="relative w-full max-w-2xl aspect-video mb-6 rounded-lg overflow-hidden shadow-lg">
+            <div className="mx-auto flex w-full max-w-5xl flex-col items-center p-6">
+                <section
+                    className="relative mb-6 aspect-video w-full max-w-2xl overflow-hidden rounded-lg shadow-lg"
+                    aria-label={`Image of ${recipe.title}`}
+                >
                     <Image
                         src={recipe.image}
                         alt={recipe.title}
@@ -20,27 +23,30 @@ export function SingleRecipe({ recipe }: SingleRecipeProps) {
                         className="object-cover"
                         priority
                     />
-                </div>
+                </section>
 
-                <h1 className="text-4xl font-bold text-center mb-6">
-                    {recipe.title}
-                </h1>
+                <section aria-labelledby="recipe-title">
+                    <h1 className="mb-6 text-center text-4xl font-bold">{recipe.title}</h1>
+                </section>
 
                 <div className="w-full max-w-2xl">
-                    <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
-                    <ul className="space-y-4">
-                        {recipe.extendedIngredients.map((ingredient, index) => (
-                            <li
-                                key={index}
-                                className="flex justify-between items-center p-4 rounded-lg shadow-md"
-                            >
-                                <span className="text-lg">
-                                    {ingredient.amount} {ingredient.unit}{" "}
-                                    {ingredient.name}
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
+                    <section aria-labelledby="ingredients-title">
+                        <h2 className="mb-4 text-2xl font-semibold">Ingredients</h2>
+                    </section>
+                    <section aria-labelledby="ingredients-list">
+                        <ul className="space-y-4">
+                            {recipe.extendedIngredients.map((ingredient, index) => (
+                                <li
+                                    key={index}
+                                    className="flex items-center justify-between rounded-lg p-4 shadow-md"
+                                >
+                                    <span className="text-lg">
+                                        {ingredient.amount} {ingredient.unit} {ingredient.name}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
                 </div>
             </div>
         </div>

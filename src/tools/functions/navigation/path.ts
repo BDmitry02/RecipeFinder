@@ -2,10 +2,7 @@ import { WithIndexer } from "@type/general-types";
 import { RecipesQueryParams } from "@type/recipes/recipes-search-response";
 import { isNullOrUndefined } from "@functions/checkers";
 
-export function addQueryParamsToPath(
-    path: string,
-    queryParams?: RecipesQueryParams[] | WithIndexer<string>
-) {
+export function addQueryParamsToPath(path: string, queryParams?: RecipesQueryParams[] | WithIndexer<string>) {
     if (!queryParams) return path;
 
     let searchParams: string;
@@ -22,9 +19,8 @@ function convertArrayParamsToString(queryParams: RecipesQueryParams[]) {
     const searchParams = queryParams
         .flatMap((param) =>
             Object.entries(param).filter(
-                ([key, value]) =>
-                    !isNullOrUndefined(key) && !isNullOrUndefined(value)
-            )
+                ([key, value]) => !isNullOrUndefined(key) && !isNullOrUndefined(value),
+            ),
         )
         .map(([key, value]) => `${key}=${value}`)
         .join("&");
@@ -34,14 +30,8 @@ function convertArrayParamsToString(queryParams: RecipesQueryParams[]) {
 
 function convertObjectParamsToString(queryParams: WithIndexer<string>) {
     const searchParams = Object.entries(queryParams)
-        .filter(
-            ([key, value]) =>
-                !isNullOrUndefined(key) && !isNullOrUndefined(value)
-        )
-        .map(
-            ([key, value]) =>
-                `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-        )
+        .filter(([key, value]) => !isNullOrUndefined(key) && !isNullOrUndefined(value))
+        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
         .join("&");
 
     return searchParams;

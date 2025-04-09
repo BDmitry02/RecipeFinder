@@ -13,9 +13,9 @@ export function RecipesList({ recipes }: RecipesListProps) {
     return (
         <div>
             {recipes.results.length > 0 && <BackArrow />}
-            <div className="flex flex-col gap-8 items-center justify-center">
+            <div className="flex flex-col items-center justify-center gap-8">
                 {recipes.results.length > 0 ? (
-                    <div className="grid grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] gap-6 w-full justify-items-center">
+                    <div className="grid w-full grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] justify-items-center gap-6">
                         {recipes.results.map((recipe) => (
                             <div key={recipe.id} className="w-72">
                                 <SingleRecipeCard recipe={recipe} />

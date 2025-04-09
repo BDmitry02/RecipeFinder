@@ -66,7 +66,7 @@ export interface RecipeResponse {
     diets: string[];
     occasions: string[];
     instructions: string;
-    analyzedInstructions: { name: string; steps: any[] }[];
+    analyzedInstructions: { name: string; steps: unknown[] }[];
     originalId: string | null;
     spoonacularScore: number;
     spoonacularSourceUrl: string;

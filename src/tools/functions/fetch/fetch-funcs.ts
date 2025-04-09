@@ -6,7 +6,7 @@ import { RecipesQueryParams } from "@type/recipes/recipes-search-response";
 export async function fetchGet<T>(
     url: string,
     queryParams?: RecipesQueryParams[] | WithIndexer<string>,
-    params?: WithIndexer<number>
+    params?: WithIndexer<number>,
 ) {
     const completedUrl = addQueryParamsToPath(url, queryParams);
 

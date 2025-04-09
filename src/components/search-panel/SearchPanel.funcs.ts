@@ -6,7 +6,7 @@ export function setButtonVisibility(
     query: string,
     maxReadyTime: string,
     cuisine: string,
-    setIsButtonDisabled: SetStateFunc<boolean>
+    setIsButtonDisabled: SetStateFunc<boolean>,
 ) {
     const time = Number(maxReadyTime);
 
@@ -17,11 +17,7 @@ export function setButtonVisibility(
     }
 }
 
-export function submitForm(
-    query: string,
-    maxReadyTime: string,
-    cuisine: string
-) {
+export function submitForm(query: string, maxReadyTime: string, cuisine: string) {
     const searchParams = [];
 
     searchParams.push({ number: "50" });

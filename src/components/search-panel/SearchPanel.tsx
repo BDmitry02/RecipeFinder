@@ -2,19 +2,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { Input } from "@shadcn/input";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@shadcn/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shadcn/select";
 import { Button } from "@shadcn/button";
 import { cuisines } from "@constants/cuisines";
-import {
-    setButtonVisibility,
-    submitForm,
-} from "@/components/search-panel/SearchPanel.funcs";
+import { setButtonVisibility, submitForm } from "@/components/search-panel/SearchPanel.funcs";
 
 export function SearchPanel() {
     const [query, setQuery] = useState("");
@@ -24,29 +15,19 @@ export function SearchPanel() {
 
     const onQueryInputChange = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value),
-        []
+        [],
     );
 
     const onReadyTimeInputChange = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) =>
-            setMaxReadyTime(e.target.value),
-        []
+        (e: React.ChangeEvent<HTMLInputElement>) => setMaxReadyTime(e.target.value),
+        [],
     );
 
-    const onCuisineChange = useCallback(
-        (value: string) => setCuisine(value),
-        []
-    );
+    const onCuisineChange = useCallback((value: string) => setCuisine(value), []);
 
     useEffect(
-        () =>
-            setButtonVisibility(
-                query,
-                maxReadyTime,
-                cuisine,
-                setIsButtonDisabled
-            ),
-        [query, maxReadyTime, cuisine]
+        () => setButtonVisibility(query, maxReadyTime, cuisine, setIsButtonDisabled),
+        [query, maxReadyTime, cuisine],
     );
 
     const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -62,7 +43,7 @@ export function SearchPanel() {
             </h2>
             <form
                 onSubmit={onFormSubmit}
-                className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-stretch sm:items-end"
+                className="flex flex-col flex-wrap items-stretch justify-center gap-4 sm:flex-row sm:items-end"
             >
                 <label id="query-label" className="sr-only" htmlFor="query">
                     What do you want to cook?
@@ -91,11 +72,7 @@ export function SearchPanel() {
                         ))}
                     </SelectContent>
                 </Select>
-                <label
-                    id="maxReadyTime-label"
-                    className="sr-only"
-                    htmlFor="maxReadyTime"
-                >
+                <label id="maxReadyTime-label" className="sr-only" htmlFor="maxReadyTime">
                     Max ready time (mins)
                 </label>
                 <Input
@@ -107,11 +84,7 @@ export function SearchPanel() {
                     className="w-full sm:max-w-48"
                     min={0}
                 />
-                <Button
-                    type="submit"
-                    variant="outline"
-                    disabled={isButtonDisabled}
-                >
+                <Button type="submit" variant="outline" disabled={isButtonDisabled}>
                     Next
                 </Button>
             </form>
