@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Recipe Finder App
 
+## Overview
+
+The **Recipe Finder App** is a web application built with **Next.js** that allows users to search for recipes, view the results with detailed information, and explore ingredients and preparation steps for each recipe. The application utilizes the Spoonacular API to fetch recipe data and is styled with **Tailwind CSS**.
+
+
+## Features
+
+- **Search for Recipes**: Allows users to search for recipes based on query, cuisine, and preparation time.
+- **Recipe Results**: Displays a list of recipes with their title and image.
+- **Recipe Details**: Clicking on a recipe shows detailed information, including ingredients and preparation steps.
+- **Suspense Loading**: Uses Suspense for loading states during data fetching.
+- **Error Handling**: Implements error handling for data fetching issues.
+- **Responsive Design**: Fully responsive UI using Tailwind CSS.
+  
 ## Getting Started
 
-First, run the development server:
+### Setup
+
+1. Clone this repository:
+
+    ```bash
+    git clone https://github.com/BDmitry02/RecipeFinder.git
+    ```
+
+2. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+
+### Running the App
+
+To run the development server, use the following command:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run the production server, follow these steps:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Build the application**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    First, build the application to prepare it for production. Run the following command:
 
-## Learn More
+    ```bash
+    npm run build
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+    This command will generate an optimized production build in the `.next` directory.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Start the production server**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    Once the build is complete, run the following command to start the server:
 
-## Deploy on Vercel
+    ```bash
+    npm start
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    This will start the Next.js production server.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Access the application**:
+
+    After starting the production server, open your browser and go to the following URL:
+
+    ```bash
+    http://localhost:3000
+    ```
+
+    The app should now be running in production mode, serving the optimized build.
