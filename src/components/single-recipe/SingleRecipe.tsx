@@ -1,6 +1,6 @@
 import { Recipe } from "@type/recipes/recipes-search-response";
 import Image from "next/image";
-import { BackArrow } from "../back-arrow/BackArrow";
+import { BackArrow } from "@/components/back-arrow/BackArrow";
 
 interface SingleRecipeProps {
     recipe: Recipe;
@@ -38,7 +38,7 @@ export function SingleRecipe({ recipe }: SingleRecipeProps) {
                             {recipe.extendedIngredients.map((ingredient, index) => (
                                 <li
                                     key={index}
-                                    className="flex items-center justify-between rounded-lg p-4 shadow-md"
+                                    className="flex items-center justify-between rounded-lg border p-4 shadow-lg"
                                 >
                                     <span className="text-lg">
                                         {ingredient.amount} {ingredient.unit} {ingredient.name}

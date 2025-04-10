@@ -2,8 +2,8 @@ import Link from "next/link";
 import { SingleRecipeCard } from "@/components/single-recipe-card/SingleRecipeCard";
 import { RecipesSearchResult } from "@type/recipes/recipes-search-response";
 import { routes } from "@constants/api/routes";
-import { Button } from "../shadcn/button";
-import { BackArrow } from "../back-arrow/BackArrow";
+import { Button } from "@shadcn/button";
+import { BackArrow } from "@/components/back-arrow/BackArrow";
 
 interface RecipesListProps {
     recipes: RecipesSearchResult;
@@ -14,7 +14,7 @@ export function RecipesList({ recipes }: RecipesListProps) {
         <div>
             {recipes.results.length > 0 && <BackArrow />}
             <section
-                className="flex flex-col items-center justify-center gap-8"
+                className="mt-4 flex flex-col items-center justify-center gap-8"
                 aria-label="Recipes list"
                 role="region"
             >

@@ -9,7 +9,7 @@ interface SingleRecipeCardProps {
 
 export function SingleRecipeCard({ recipe }: SingleRecipeCardProps) {
     return (
-        <div className="flex h-full w-full flex-col gap-4 rounded-md border border-border p-4 shadow-sm">
+        <div className="flex h-full w-full flex-col justify-between gap-4 rounded-md border border-border p-4 shadow-sm">
             <Link href={routes.recipes + `/${recipe.id}`} className="relative h-48 w-full">
                 <Image src={recipe.image} alt={recipe.title} sizes="20rem" fill className="object-cover" />
             </Link>
